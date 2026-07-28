@@ -1,0 +1,76 @@
+/*
+ * One stylesheet, no web fonts, no CDN, no analytics. Deliberate: these pages
+ * are the privacy policy and support page for an app whose whole claim is that
+ * it doesn't phone home. A Google Fonts <link> here would make a request to a
+ * third party on the very page promising it doesn't — so everything is local
+ * and the system font stack does the work.
+ */
+
+:root { color-scheme: light dark; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem 4rem;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  /* softLight.bg / softDark.bg from the app's theme.ts, so the pages read as
+     part of the same product rather than a bolted-on legal appendix. */
+  background: #f2eee7;
+  color: #2b2724;
+  -webkit-text-size-adjust: 100%;
+}
+
+main { max-width: 40rem; margin: 0 auto; }
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35em;
+}
+
+h2 {
+  font-size: 1.2rem;
+  letter-spacing: -0.005em;
+  margin: 2.25em 0 0.6em;
+}
+
+h3 { font-size: 1.03rem; margin: 1.9em 0 0.4em; }
+
+p, ul, ol { margin: 0 0 1.05em; }
+ul { padding-left: 1.25em; }
+li { margin-bottom: 0.45em; }
+
+a { color: #8a5a2b; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+strong { font-weight: 650; }
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 2.5em 0;
+}
+
+.lede { font-size: 1.1rem; }
+.meta { font-size: 0.95rem; opacity: 0.72; }
+
+.nav { margin: 0 0 2em; font-size: 0.95rem; }
+
+footer {
+  margin-top: 3.5em;
+  padding-top: 1.25em;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 0.92rem;
+  opacity: 0.75;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: #191817; color: #e6e1d9; }
+  a { color: #d8a76a; }
+  hr, footer { border-color: rgba(255, 255, 255, 0.14); }
+}

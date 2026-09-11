@@ -42,9 +42,13 @@ a phone. When you send a message to the coach, the app sends to our server:</p>
     decisions, your current plan, and one-line summaries of past sessions.</li>
 </ul>
 
-<p>Our server adds no identifying information and immediately forwards this to
-<strong>Anthropic</strong>, whose model writes the reply. The reply streams back
-to your phone and is stored on your phone.</p>
+<p>Our server adds one thing — a one-way scrambled (hashed) version of your
+device’s random identifier, so that misuse can be tied to a single device
+rather than to everyone using the app — and immediately forwards this to
+<strong>Anthropic</strong>, whose model writes the reply. That scrambled
+identifier cannot be turned back into the device record, and it is not linked
+to your name, email, phone, or Apple/Google account, because we never receive
+those. The reply streams back to your phone and is stored on your phone.</p>
 
 <p><strong>Our server does not store any of it.</strong> It holds the request
 only for as long as it takes to pass it on and stream the answer back.</p>
@@ -61,7 +65,8 @@ sends coaching requests <strong>directly from your phone to Anthropic</strong>,
 on your own account and your own bill. Our server is not involved at all: it
 never sees the request, and none of the device record or daily counters
 described below are created. What Anthropic receives is the same as above —
-your message and the selected slice of your data — under the same terms.</p>
+your message and the selected slice of your data, without the scrambled device
+identifier — under the same terms.</p>
 
 <h2>What our server does keep</h2>
 
